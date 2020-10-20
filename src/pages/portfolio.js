@@ -3,8 +3,8 @@ import React from "react"
 const Portfolio = () => {
   return (
     <div>
-      <h1>Blog Page</h1>
-      <p>Blog posts will be displayed here!</p>
+      <h1>Portfolio Page</h1>
+      <p>Check out our past projects below and then get in touch with DevZep so that we can begin working on YOUR next project!</p>
     </div>
   )
 }

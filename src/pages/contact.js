@@ -3,8 +3,8 @@ import React from "react"
 const Contact = () => {
   return (
     <div>
-      <h1>Blog Page</h1>
-      <p>Blog posts will be displayed here!</p>
+      <h1>Contact Page</h1>
+      <p>You can find Ibas on Twitter via @ibaslogic</p>
     </div>
   )
 }
