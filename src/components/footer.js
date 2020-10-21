@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <p>
-        Site developed by Ibaslogic &copy; {new Date().getFullYear().toString()}{" "}
+        Site developed by &copy; {new Date().getFullYear().toString()}{" "}
       </p>
     </footer>
   )
