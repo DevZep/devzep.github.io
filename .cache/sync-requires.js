@@ -8,7 +8,6 @@ exports.components = {
   "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/seyha/Documents/devzep.github.io/.cache/dev-404-page.js"))),
   "component---src-pages-404-js": hot(preferDefault(require("/Users/seyha/Documents/devzep.github.io/src/pages/404.js"))),
   "component---src-pages-contact-js": hot(preferDefault(require("/Users/seyha/Documents/devzep.github.io/src/pages/contact.js"))),
-  "component---src-pages-header-js": hot(preferDefault(require("/Users/seyha/Documents/devzep.github.io/src/pages/header.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/seyha/Documents/devzep.github.io/src/pages/index.js"))),
   "component---src-pages-page-2-js": hot(preferDefault(require("/Users/seyha/Documents/devzep.github.io/src/pages/page-2.js"))),
   "component---src-pages-portfolio-js": hot(preferDefault(require("/Users/seyha/Documents/devzep.github.io/src/pages/portfolio.js"))),
