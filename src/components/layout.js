@@ -17,7 +17,7 @@
 //     query SiteTitleQuery {
 //       site {
 //         siteMetadata {
-//           title
+//           title 
 //         }
 //       }
 //     }
