@@ -19,17 +19,16 @@ const Menu = () => (
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/portfolio">About</Link>
+        <Link to="/portfolio">Portfolio</Link>
       </li>
       <li>
-        <Link to="/service">Services</Link>
+        <Link to="/services">Services</Link>
       </li>
       <li>
-        <Link to="/blog">Blog</Link>
+        <Link to="/contact">Contact</Link>
       </li>
     </ul>
   </div>
 )
 
 export default Menu
-
