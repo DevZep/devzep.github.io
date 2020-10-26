@@ -1,16 +1,14 @@
 import React from 'react'
 
-const AboutPage = () => (
+const PortfolioPage = () => (
   <div>
-    <h1>About Us</h1>
+    <h1>Portfolio</h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-      adipisci, voluptatum, nisi velit praesentium error quia explicabo voluptas
-      ad recusandae enim. Recusandae sequi non vel voluptas. Labore omnis
-      provident ex, perferendis esse, voluptate atque alias officiis dolor
-      eligendi itaque qui?
+      Check out our past projects below and then get in touch with DevZep so that we can begin working on YOUR next project!
     </p>
+
+
   </div>
 )
 
-export default AboutPage
+export default PortfolioPage
