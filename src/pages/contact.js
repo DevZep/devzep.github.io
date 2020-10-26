@@ -1,12 +1,11 @@
-import React from "react"
+import React from 'react'
+import Link from 'gatsby-link'
 
-const Contact = () => {
-  return (
-    <div>
-      <h1>Contact Page</h1>
-      <p>You can find Ibas on Twitter via @ibaslogic</p>
-    </div>
-  )
-}
+const ContactPage = ({ data }) => (
+  <div>
+    <h1>Contact page</h1>
+   
+  </div>
+)
 
-export default Contact
+export default ContactPage

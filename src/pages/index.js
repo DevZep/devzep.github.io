@@ -1,53 +1,11 @@
-import React, { useImperativeHandle, useRef } from "react"
+import React from 'react'
+import Link from 'gatsby-link'
 
-import { Link } from "gatsby"
+const IndexPage = () => (
+  <div>
+    <h1>Welcome to my website</h1>
+    <h1>DevZep is a collective of the best developers and technology specialists from around the globe.</h1>
+  </div>
+)
 
-class Menu extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false,
-    }
-  }
-
-  render() {
-    return (
-      <div
-        role="button"
-        tabIndex="0"
-        // className={`${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
-        onClick={() => this.close()}
-        onKeyDown={() => this.close()}
-      >
-        <Link to="/"><h1>Home</h1></Link>
-        <Link to="/portfolio"><h1>Portfolio</h1></Link>
-        <Link to="/service"><h1>Services</h1></Link>
-        <Link to="/contact"><h1>Contact</h1></Link>
-        <h1>DevZep is a collective of the best developers and technology specialists from around the globe.</h1>
-       
-      </div>
-      
-    )
-  }
-  
-
-  close() {
-    this.setState({ open: false })
-  }
-
-  open() {
-    this.setState({ open: true })
-  }
-}
-
-export default React.forwardRef((props, ref) => {
-  const menuRef = useRef()
-
-  useImperativeHandle(ref, () => ({
-    open() {
-      menuRef.current.open()
-    },
-  }))
-
-  return <Menu ref={menuRef} {...props} />
-})
+export default IndexPage
