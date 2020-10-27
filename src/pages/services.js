@@ -2,6 +2,7 @@ import React from 'react'
 
 const ServicesPage = () => (
   <div class="container">
+    <h1>We make your ideas a reality</h1>
     <h1>Our Services</h1>
   
     <div class="row">
@@ -23,6 +24,24 @@ const ServicesPage = () => (
          leverage the benefits of the cloud/on-premise infrastructure and ensure your environment runs efficiently and effectively.
       </p>
     </div>
+    <div class="row">
+      <h1>Blockchain</h1>
+      <p>We provide Blockchain / Distributed Ledger Technology development services for building robust modern distributed systems. 
+        Our team have experience with building Ethereum Dapps in Solidity for Finance, Payments, Supply Chain Management and Notary services. 
+        We also have experience building apps using the IOTA Tangle for IoT.</p>
+    </div>
+    <div class="row">
+      <h1>Backend Development</h1>
+      <p>Most of the applications we build also require a solid backend. We design and build RESTful APIs and GraphQL endpoints to support this. 
+        Our APIs are fast, secure, extensible and easy to use. They are most often deployed directly to Amazon Web Services (AWS) or a provider of AWS 
+        such as Digital Ocean or other infrastructure providers such as Azure.</p>
+    </div>
+    <div class="row">
+      <h1>Artificial Intelligence</h1>
+      <p>Our passion is FinTech and IoT. Using the large amounts of data produced by these fields we are able to build prediction models that greatly assist our clients decisions. 
+        We can build trading bots, sentiment analysis algorithms, financial prediction systems, customer behaviour prediction systems and more.</p>
+    </div>
+ 
  
   </div>
 )
