@@ -41,7 +41,10 @@ const ServicesPage = () => (
       <p>Our passion is FinTech and IoT. Using the large amounts of data produced by these fields we are able to build prediction models that greatly assist our clients decisions. 
         We can build trading bots, sentiment analysis algorithms, financial prediction systems, customer behaviour prediction systems and more.</p>
     </div>
- 
+    <h4>© 2020 DevZep</h4>
+    <p>DevZep is a technical team of passionate developers. We have a wide range of skills to build entire digital 
+      products for Web, Mobile, Blockchian/Distributed Ledger Technology, DevOps Services and Artificial Intelligence 
+      (AI) / Machine Learning (ML) systems for FinTech and IoT.</p>
  
   </div>
 )

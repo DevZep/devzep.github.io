@@ -29,11 +29,18 @@ const ContactPage = ({ data }) => (
         </label><br></br><br></br>
         {/* <button type="submit">Submit</button> */}
       </form>
-      <button>Say Hello!</button>
+      <button>Say Hello!</button><br></br><br></br>
     <h3>Careers</h3>
     <h2>jobs@devzep.com</h2>
     <h3>New Business</h3>
     <h2>hello@devzep.com</h2>
+    <div>
+    <h4>© 2020 DevZep</h4>
+    <p>DevZep is a technical team of passionate developers. We have a wide range of skills to build entire digital products for Web, 
+       Mobile, Blockchian/Distributed Ledger Technology, DevOps Services and Artificial Intelligence (AI) / Machine Learning (ML) systems 
+       for FinTech and IoT.
+    </p>
+  </div>
   </div>
 )
 

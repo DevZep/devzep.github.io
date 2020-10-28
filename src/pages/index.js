@@ -23,6 +23,11 @@ const IndexPage = () => (
     <p>(+855) 99 999 426</p>
     <p>(+855) 85 390 565</p>
     
+    <h4>© 2020 DevZep</h4>
+    <p>DevZep is a technical team of passionate developers. We have a wide range of skills to build entire digital 
+      products for Web, Mobile, Blockchian/Distributed Ledger Technology, DevOps Services and Artificial Intelligence 
+      (AI) / Machine Learning (ML) systems for FinTech and IoT.</p>
+      
   </div>
   
 )

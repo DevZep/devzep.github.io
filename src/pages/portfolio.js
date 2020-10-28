@@ -105,7 +105,11 @@ const PortfolioPage = () => (
       <h3 class="portfolio-title">Child Safe Movement</h3>
     </div>
   </a>
-
+  <h4>© 2020 DevZep</h4>
+    <p>DevZep is a technical team of passionate developers. We have a wide range of skills to build entire digital products for Web, 
+       Mobile, Blockchian/Distributed Ledger Technology, DevOps Services and Artificial Intelligence (AI) / Machine Learning (ML) systems 
+       for FinTech and IoT.
+    </p>
 </div>
 
   </div>
