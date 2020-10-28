@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 
 const IndexPage = () => (
   <div>
-    <h1>Welcome to our website</h1>
+    <h1>Welcome to our website!</h1>
     <h1>DevZep is a collective of the best developers and technology specialists from around the globe.</h1>
 
     <h2>We’d love to work with you.</h2>
@@ -22,6 +22,7 @@ const IndexPage = () => (
     </p>
     <p>(+855) 99 999 426</p>
     <p>(+855) 85 390 565</p>
+    
   </div>
   
 )

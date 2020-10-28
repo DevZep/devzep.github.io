@@ -35,10 +35,10 @@ export default Footer
 //                 <a href="#!">Service</a>
 //               </li>
 //               <li className="list-unstyled">
-//                 <a href="#!">Contact</a>
+//                 <a href="#!">Contact Us</a>
 //               </li>
 //               <li className="list-unstyled">
-//                 <a href="#!">Love</a>
+//                 <a href="#!">About Us</a>
 //               </li>
 //             </ul>
 //           </MDBCol>

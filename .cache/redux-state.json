@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "2d7bc0188fa4207b22799a8368ad22f3",
+        "contentDigest": "4d1becb6898d8c609ff9e9d03f8826de",
         "owner": "internal-data-bridge"
       }
     },
@@ -689,12 +689,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2020-10-27T00:40:55.405Z",
+      "buildTime": "2020-10-28T00:46:00.169Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "2a41a5e64db8470da0d69e83ff976167",
+        "contentDigest": "fb4142c1c2a647dfbde7ae4ae143bb38",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -876,7 +876,7 @@
       "children": [],
       "parent": "___SOURCE___",
       "internal": {
-        "contentDigest": "7013031abca5b9d9c20f81cea3494e2f",
+        "contentDigest": "9d8cb9d3bfef3f931fa3569b0f458570",
         "mediaType": "application/javascript",
         "type": "File",
         "owner": "gatsby-source-filesystem"
@@ -885,11 +885,11 @@
       "absolutePath": "/Users/seyha/Documents/devzep.github.io/src/pages/contact.js",
       "relativePath": "contact.js",
       "extension": "js",
-      "size": 434,
-      "prettySize": "434 B",
-      "modifiedTime": "2020-10-27T09:06:03.009Z",
-      "accessTime": "2020-10-27T09:05:54.445Z",
-      "changeTime": "2020-10-27T09:06:03.009Z",
+      "size": 1622,
+      "prettySize": "1.62 kB",
+      "modifiedTime": "2020-10-28T04:12:47.583Z",
+      "accessTime": "2020-10-28T04:12:30.131Z",
+      "changeTime": "2020-10-28T04:12:47.583Z",
       "birthTime": "2020-10-26T03:12:33.397Z",
       "root": "/",
       "dir": "/Users/seyha/Documents/devzep.github.io/src/pages",
@@ -906,13 +906,13 @@
       "blksize": 4096,
       "ino": 12893780841,
       "blocks": 8,
-      "atimeMs": 1603789554445.2168,
-      "mtimeMs": 1603789563009.267,
-      "ctimeMs": 1603789563009.267,
+      "atimeMs": 1603858350131.338,
+      "mtimeMs": 1603858367583.202,
+      "ctimeMs": 1603858367583.202,
       "birthtimeMs": 1603681953396.6223,
-      "atime": "2020-10-27T09:05:54.445Z",
-      "mtime": "2020-10-27T09:06:03.009Z",
-      "ctime": "2020-10-27T09:06:03.009Z",
+      "atime": "2020-10-28T04:12:30.131Z",
+      "mtime": "2020-10-28T04:12:47.583Z",
+      "ctime": "2020-10-28T04:12:47.583Z",
       "birthtime": "2020-10-26T03:12:33.397Z"
     },
     "/Users/seyha/Documents/devzep.github.io/src/pages/index.js absPath of file": {
@@ -920,7 +920,7 @@
       "children": [],
       "parent": "___SOURCE___",
       "internal": {
-        "contentDigest": "019746ef0e4bc8e64a460dc7a7bd9a4e",
+        "contentDigest": "46804334183c6195d3d3a9bd9579b2ca",
         "mediaType": "application/javascript",
         "type": "File",
         "owner": "gatsby-source-filesystem"
@@ -929,11 +929,11 @@
       "absolutePath": "/Users/seyha/Documents/devzep.github.io/src/pages/index.js",
       "relativePath": "index.js",
       "extension": "js",
-      "size": 679,
-      "prettySize": "679 B",
-      "modifiedTime": "2020-10-27T08:17:02.210Z",
-      "accessTime": "2020-10-27T08:17:00.034Z",
-      "changeTime": "2020-10-27T08:17:02.210Z",
+      "size": 685,
+      "prettySize": "685 B",
+      "modifiedTime": "2020-10-28T04:41:53.706Z",
+      "accessTime": "2020-10-28T04:41:47.166Z",
+      "changeTime": "2020-10-28T04:41:53.706Z",
       "birthTime": "2020-10-26T03:12:33.397Z",
       "root": "/",
       "dir": "/Users/seyha/Documents/devzep.github.io/src/pages",
@@ -950,13 +950,13 @@
       "blksize": 4096,
       "ino": 12893780842,
       "blocks": 8,
-      "atimeMs": 1603786620033.561,
-      "mtimeMs": 1603786622209.7358,
-      "ctimeMs": 1603786622209.7358,
+      "atimeMs": 1603860107165.7866,
+      "mtimeMs": 1603860113705.6626,
+      "ctimeMs": 1603860113705.6626,
       "birthtimeMs": 1603681953396.8423,
-      "atime": "2020-10-27T08:17:00.034Z",
-      "mtime": "2020-10-27T08:17:02.210Z",
-      "ctime": "2020-10-27T08:17:02.210Z",
+      "atime": "2020-10-28T04:41:47.166Z",
+      "mtime": "2020-10-28T04:41:53.706Z",
+      "ctime": "2020-10-28T04:41:53.706Z",
       "birthtime": "2020-10-26T03:12:33.397Z"
     },
     "/Users/seyha/Documents/devzep.github.io/src/pages/page-2.js absPath of file": {
@@ -1008,7 +1008,7 @@
       "children": [],
       "parent": "___SOURCE___",
       "internal": {
-        "contentDigest": "2e8bbf4d0612c37b4cd8e00349d9abc4",
+        "contentDigest": "e4e399abf24b0e7a5dd51f05e8cb4bf3",
         "mediaType": "application/javascript",
         "type": "File",
         "owner": "gatsby-source-filesystem"
@@ -1017,11 +1017,11 @@
       "absolutePath": "/Users/seyha/Documents/devzep.github.io/src/pages/portfolio.js",
       "relativePath": "portfolio.js",
       "extension": "js",
-      "size": 273,
-      "prettySize": "273 B",
-      "modifiedTime": "2020-10-26T09:43:41.060Z",
-      "accessTime": "2020-10-26T09:43:37.873Z",
-      "changeTime": "2020-10-26T09:43:41.060Z",
+      "size": 8165,
+      "prettySize": "8.16 kB",
+      "modifiedTime": "2020-10-28T04:42:45.463Z",
+      "accessTime": "2020-10-28T04:42:43.727Z",
+      "changeTime": "2020-10-28T04:42:45.463Z",
       "birthTime": "2020-10-26T03:12:33.397Z",
       "root": "/",
       "dir": "/Users/seyha/Documents/devzep.github.io/src/pages",
@@ -1037,14 +1037,14 @@
       "rdev": 0,
       "blksize": 4096,
       "ino": 12893780844,
-      "blocks": 8,
-      "atimeMs": 1603705417872.5295,
-      "mtimeMs": 1603705421060.2173,
-      "ctimeMs": 1603705421060.2173,
+      "blocks": 16,
+      "atimeMs": 1603860163726.9932,
+      "mtimeMs": 1603860165463.0872,
+      "ctimeMs": 1603860165463.0872,
       "birthtimeMs": 1603681953397.1772,
-      "atime": "2020-10-26T09:43:37.873Z",
-      "mtime": "2020-10-26T09:43:41.060Z",
-      "ctime": "2020-10-26T09:43:41.060Z",
+      "atime": "2020-10-28T04:42:43.727Z",
+      "mtime": "2020-10-28T04:42:45.463Z",
+      "ctime": "2020-10-28T04:42:45.463Z",
       "birthtime": "2020-10-26T03:12:33.397Z"
     },
     "/Users/seyha/Documents/devzep.github.io/src/pages/services.js absPath of file": {
@@ -1063,9 +1063,9 @@
       "extension": "js",
       "size": 2668,
       "prettySize": "2.67 kB",
-      "modifiedTime": "2020-10-27T09:33:28.845Z",
-      "accessTime": "2020-10-27T09:33:27.200Z",
-      "changeTime": "2020-10-27T09:33:28.845Z",
+      "modifiedTime": "2020-10-28T04:42:09.240Z",
+      "accessTime": "2020-10-28T04:42:00.287Z",
+      "changeTime": "2020-10-28T04:42:09.240Z",
       "birthTime": "2020-10-26T03:12:33.397Z",
       "root": "/",
       "dir": "/Users/seyha/Documents/devzep.github.io/src/pages",
@@ -1082,13 +1082,13 @@
       "blksize": 4096,
       "ino": 12893780845,
       "blocks": 8,
-      "atimeMs": 1603791207200.2288,
-      "mtimeMs": 1603791208845.0547,
-      "ctimeMs": 1603791208845.0547,
+      "atimeMs": 1603860120286.5466,
+      "mtimeMs": 1603860129240.1475,
+      "ctimeMs": 1603860129240.1475,
       "birthtimeMs": 1603681953397.286,
-      "atime": "2020-10-27T09:33:27.200Z",
-      "mtime": "2020-10-27T09:33:28.845Z",
-      "ctime": "2020-10-27T09:33:28.845Z",
+      "atime": "2020-10-28T04:42:00.287Z",
+      "mtime": "2020-10-28T04:42:09.240Z",
+      "ctime": "2020-10-28T04:42:09.240Z",
       "birthtime": "2020-10-26T03:12:33.397Z"
     },
     "/Users/seyha/Documents/devzep.github.io/src/pages/404.js absPath of file": {
@@ -1352,7 +1352,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "fe17024207e1ad5efb1d8a6d7ff2852a",
+        "contentDigest": "e7e4445757d2266598ae1b2e458c75ae",
         "owner": "internal-data-bridge"
       }
     },
@@ -1372,7 +1372,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "73856423eaed708651d3a0c55e5b7890",
+        "contentDigest": "82984e57956a8dab22c7cf1eda194e46",
         "owner": "internal-data-bridge"
       }
     },
@@ -1392,7 +1392,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "fd873be700fdea2e44c2bf54dc571a76",
+        "contentDigest": "a162d5b3b389ffda388c4398334327f2",
         "owner": "internal-data-bridge"
       }
     },
@@ -1412,7 +1412,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "269467828e4c355820caafb476b60fc0",
+        "contentDigest": "8d4853643889ce03289944eb5080608b",
         "owner": "internal-data-bridge"
       }
     },
@@ -1432,7 +1432,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "e3b7efcbfb05796b8ccdf20a2212a75c",
+        "contentDigest": "8e55f5de34a63b81d3d816f0f26319ed",
         "owner": "internal-data-bridge"
       }
     },
@@ -1452,7 +1452,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "dee0915279dfdc36c49b4f8f28b14c1b",
+        "contentDigest": "f0832c2d41ff418db5ed03174f8b251d",
         "owner": "internal-data-bridge"
       }
     },
@@ -1472,7 +1472,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "4f266a50c3d21ce7aed28eda44c58004",
+        "contentDigest": "fa3b23ef678de9ecd5b9e33311d53129",
         "owner": "internal-data-bridge"
       }
     },
@@ -1492,7 +1492,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "2d5728fe38b370ea219b9172827fa718",
+        "contentDigest": "83cc8e9918f176b1368e45d7dddee9a7",
         "owner": "internal-data-bridge"
       }
     },
@@ -1512,7 +1512,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "6b46b5e76a4cc05c38432e69a2f87bb4",
+        "contentDigest": "d20a827884f3c746e7c70c18a29e171a",
         "owner": "internal-data-bridge"
       }
     },
@@ -1532,7 +1532,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "c1e74450b50f0a37f2f9bf870d443d7f",
+        "contentDigest": "ab9cb7c5978baf60aa9f72331f6e6b13",
         "owner": "internal-data-bridge"
       }
     }
