@@ -1,213 +1,577 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DevZep is an AI-focused consultancy building Claude-powered agents, RAG systems, MCP integrations, context-management infrastructure, and production AI applications." />
+  <meta property="og:title" content="DevZep — Claude AI Consultancy" />
+  <meta property="og:description" content="Claude-first AI consulting for MCP, RAG, Agents, Context Management, and production AI applications." />
+  <meta property="og:type" content="website" />
+  <title>DevZep — Claude AI Consultancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f4ed;
+      --bg-soft: #faf9f5;
+      --ink: #141413;
+      --muted: #5e5d59;
+      --faint: #87867f;
+      --line: #e8e6dc;
+      --line-soft: #f0eee6;
+      --brand: #c96442;
+      --brand-2: #d97757;
+      --dark: #141413;
+      --dark-card: #242421;
+      --dark-line: #30302e;
+      --silver: #d5d1c5;
+      --green: #556b4f;
+      --shadow: 0 24px 80px rgba(20, 20, 19, .10);
+      --ring: 0 0 0 1px rgba(201, 100, 66, .18), 0 24px 70px rgba(20,20,19,.08);
+    }
 
-  <title>DevZep - Ideas Realized!</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/home.bbfe12683a8c.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 10;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(245, 244, 237, .82);
+      border-bottom: 1px solid rgba(232, 230, 220, .8);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      font-size: 23px;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: radial-gradient(circle at 30% 25%, #e9a083, var(--brand) 52%, #8c3926 100%);
+      box-shadow: 0 0 0 1px rgba(20,20,19,.08), 0 12px 35px rgba(201,100,66,.28);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      letter-spacing: -.08em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 14px; font-weight: 600; }
+    .nav-links a:hover { color: var(--ink); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(20,20,19,.08);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--brand); color: #fff; box-shadow: 0 16px 36px rgba(201, 100, 66, .28); }
+    .button.secondary { background: #fff; color: var(--ink); box-shadow: 0 0 0 1px rgba(20,20,19,.06); }
+    .button.dark { background: var(--ink); color: var(--bg-soft); }
+
+    .hero {
+      position: relative;
+      padding: 96px 0 64px;
+      min-height: 760px;
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(10px);
+      z-index: -1;
+      opacity: .62;
+    }
+    .hero::before { width: 460px; height: 460px; right: -120px; top: 80px; background: radial-gradient(circle, rgba(201,100,66,.20), transparent 68%); }
+    .hero::after { width: 420px; height: 420px; left: -160px; bottom: 10px; background: radial-gradient(circle, rgba(85,107,79,.16), transparent 70%); }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(360px, .94fr);
+      gap: 54px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.42) inset;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--brand); box-shadow: 0 0 0 6px rgba(201,100,66,.12); }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -.05em; line-height: 1.04; margin: 0; }
+    h1 { margin-top: 26px; font-size: clamp(48px, 8vw, 92px); max-width: 900px; }
+    .hero-copy { margin: 26px 0 0; color: var(--muted); font-size: clamp(18px, 2vw, 22px); max-width: 720px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+    .trusted {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.48);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .console {
+      position: relative;
+      background: var(--dark);
+      color: var(--silver);
+      border-radius: 30px;
+      border: 1px solid var(--dark-line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .console-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--dark-line);
+      color: #f8f3ea;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .lights { display: flex; gap: 7px; }
+    .light { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); opacity: .9; }
+    .light:nth-child(2) { background: #d6b36a; }
+    .light:nth-child(3) { background: #6a8f68; }
+    .console-body { padding: 26px; }
+    .code-line { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #bdb8ab; margin: 0 0 13px; }
+    .code-line .accent { color: #f0a27e; }
+    .architecture-card {
+      margin-top: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 22px;
+      padding: 18px;
+    }
+    .node-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; margin-bottom: 12px; }
+    .node {
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.045);
+      border-radius: 16px;
+      padding: 14px;
+      min-height: 74px;
+    }
+    .node strong { display: block; color: #fff8ec; font-size: 14px; margin-bottom: 2px; }
+    .node span { display: block; color: #aaa59b; font-size: 12px; }
+    .arrow { color: var(--brand-2); font-family: 'JetBrains Mono', monospace; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .metric { border-radius: 16px; border: 1px solid rgba(255,255,255,.08); padding: 14px; background: rgba(255,255,255,.04); }
+    .metric b { color: #fff8ec; font-size: 19px; display: block; }
+    .metric span { font-size: 11px; color: #aaa59b; }
+
+    section { padding: 92px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 34px; }
+    .section-head h2 { font-size: clamp(38px, 5vw, 64px); max-width: 760px; }
+    .section-head p { color: var(--muted); max-width: 440px; margin: 0; font-size: 17px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card {
+      background: rgba(250,249,245,.78);
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.42) inset;
+    }
+    .card.featured { background: #fff; box-shadow: var(--ring); }
+    .icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: rgba(201,100,66,.10);
+      color: var(--brand);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+    .card h3 { font-size: 28px; margin-bottom: 12px; }
+    .card p { color: var(--muted); margin: 0; }
+    .list { list-style: none; padding: 0; margin: 22px 0 0; }
+    .list li { display: flex; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line-soft); color: var(--muted); }
+    .check { color: var(--brand); font-weight: 900; }
+
+    .dark-section {
+      background: var(--dark);
+      color: var(--bg-soft);
+      border-radius: 44px;
+      margin: 40px 18px;
+      overflow: hidden;
+      position: relative;
+    }
+    .dark-section::before {
+      content: "";
+      position: absolute;
+      inset: -30% -10% auto auto;
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, rgba(201,100,66,.28), transparent 70%);
+      pointer-events: none;
+    }
+    .dark-section .section-head p, .dark-section .card p, .dark-section .list li { color: #bdb8ab; }
+    .dark-section .card { background: rgba(255,255,255,.045); border-color: var(--dark-line); box-shadow: none; }
+    .dark-section .list li { border-color: rgba(255,255,255,.08); }
+
+    .apps { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: stretch; }
+    .app-card {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .app-card .tag { align-self: flex-start; }
+    .tag {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(201,100,66,.12);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid rgba(201,100,66,.18);
+    }
+    .app-title { margin-top: 70px; }
+    .app-title h3 { font-size: clamp(32px, 4vw, 52px); }
+    .app-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .mini-dashboard {
+      display: grid;
+      gap: 14px;
+    }
+    .dash-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 16px; border-radius: 18px; background: #fff; border: 1px solid var(--line-soft); }
+    .dash-row b { font-size: 14px; }
+    .dash-row span { color: var(--faint); font-size: 12px; }
+    .spark { width: 58px; height: 24px; border-radius: 999px; background: linear-gradient(90deg, rgba(201,100,66,.15), rgba(85,107,79,.18)); position: relative; overflow: hidden; }
+    .spark::after { content: ""; position: absolute; inset: 8px 7px; border-top: 2px solid var(--brand); transform: skewY(-14deg); }
+
+    .providers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .provider {
+      min-height: 160px;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid var(--line);
+    }
+    .provider b { display: block; font-size: 18px; margin-bottom: 10px; }
+    .provider span { color: var(--muted); font-size: 14px; }
+
+    .process { counter-reset: step; }
+    .step { position: relative; padding-left: 64px; }
+    .step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--brand);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 92px 24px;
+      border-radius: 38px;
+      background: linear-gradient(135deg, #fff 0%, #faf9f5 52%, #efe8dc 100%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { font-size: clamp(40px, 6vw, 72px); max-width: 860px; margin: 0 auto 18px; }
+    .cta p { color: var(--muted); font-size: 19px; max-width: 690px; margin: 0 auto 30px; }
+    footer { padding: 48px 0; color: var(--muted); }
+    .footer-row { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 24px; }
+    .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: -.04em; }
+
+    @media (max-width: 940px) {
+      .hero-grid, .apps { grid-template-columns: 1fr; }
+      .grid-3, .grid-2, .providers { grid-template-columns: 1fr 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .nav-links { display: none; }
+      .hero { padding-top: 62px; min-height: auto; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 18px; }
+      .grid-3, .grid-2, .providers, .metrics { grid-template-columns: 1fr; }
+      .node-row { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); justify-self: center; }
+      .console-body { padding: 18px; }
+      section { padding: 66px 0; }
+      .dark-section { border-radius: 28px; margin: 20px 10px; }
+      .hero-actions { flex-direction: column; }
+      .button { width: 100%; }
+      .brand { font-size: 20px; }
+      .nav { min-height: 68px; }
+    }
+  </style>
 </head>
 <body>
-  <section id="hero">
-    <div class="ui container">
-      <div class="vertical-space-40"></div>
-      <div id="header" class="ui borderless menu">
-        <div class="header item">
-          <h3 id="logo" onclick="document.location.href='/'">
-            <img src='assets/img/devzep-banner.png' width="400" height="182" />
-          </h3>
-        </div>
-        <div id="nav" class="right menu">
-          <a class="item nav-videos " href="https://www.youtube.com/channel/UCsec5JlNrA02iT4826EazTw">Free Blockchain Tutorials</a>
-        </div>
-      </div>
-      <div class="vertical-space-80"></div>
+  <div class="noise" aria-hidden="true"></div>
 
-      <div id="goals" class="ui stackable grid">
-        <div id="prompt" class="row">
-          <div class="sixteen wide column tablet ten wide column computer">
-            <!-- <h1>DevZep</h1> -->
-            <h2>DeFi and Web3 Application Development - for the Future Web! </h2>
-          </div>
-          <div id="mockup" style="background-image: url(../assets/img/blockchain-coder.png);"></div>
-        </div>
-        <div id="cards" class="sixteen wide tablet ten wide computer column">
-
-
-          <div class="ui two stackable cards">
-
-            <div class="ui raised link card" data-track-id="#track-1" data-track-count="1" data-track-title="Web Developer">
-              <div class="content">
-                <div class="description">
-                  <span>I need some custom
-                    <strong class="track-1-color">Blockchain Development</strong></span>
-                  <p class='small text'>Ethereum Chains, EVM, Polkadot, Solana, PulseChain...</p>
-                </div>
-              </div>
-              <div class="track-1-color">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="83" height="83" viewBox="0 0 83 83">
-                  <metadata>
-                    <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-                    <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
-                      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <rdf:Description rdf:about="" />
-                      </rdf:RDF>
-                    </x:xmpmeta>
-                    <?xpacket end="w"?>
-                  </metadata>
-                  <defs>
-                    <style>
-                      .cls-1 {
-                        fill-rule: evenodd;
-                      }
-                    </style>
-                  </defs>
-                  <path id="Icon" class="cls-1" d="M499,368.151v-13.3l-9.718-1.621a32.568,32.568,0,0,0-3.466-8.343l5.732-8.026-9.408-9.406-8.026,5.733a32.473,32.473,0,0,0-8.342-3.467L464.152,320H450.847l-1.619,9.718a32.48,32.48,0,0,0-8.343,3.467l-8.026-5.733-9.408,9.406,5.733,8.026a32.533,32.533,0,0,0-3.466,8.343L416,354.848v13.3l9.718,1.621a32.539,32.539,0,0,0,3.466,8.344l-5.733,8.026,9.408,9.406,8.026-5.733a32.55,32.55,0,0,0,8.343,3.467L450.847,403h13.305l1.62-9.718a32.544,32.544,0,0,0,8.342-3.467l8.026,5.733,9.408-9.406-5.732-8.026a32.575,32.575,0,0,0,3.466-8.344Zm-12.82-.27a29.158,29.158,0,0,1-3.895,9.379l-0.628.984,5.374,7.523-5.264,5.265-7.524-5.375-0.984.627a29.113,29.113,0,0,1-9.379,3.895l-1.14.254-1.518,9.108h-7.445l-1.518-9.108-1.14-.254a29.108,29.108,0,0,1-9.378-3.895l-0.984-.627-7.525,5.375-5.264-5.265,5.374-7.523-0.627-.984a29.158,29.158,0,0,1-3.895-9.379l-0.252-1.14-9.11-1.518v-7.447l9.11-1.518,0.252-1.14a29.143,29.143,0,0,1,3.895-9.378l0.627-.985-5.374-7.523,5.264-5.265,7.525,5.375,0.984-.626a29.132,29.132,0,0,1,9.378-3.9l1.14-.253,1.518-9.109h7.445l1.518,9.109,1.14,0.253a29.138,29.138,0,0,1,9.379,3.9l0.984,0.626,7.524-5.375,5.264,5.265-5.374,7.523,0.628,0.985a29.143,29.143,0,0,1,3.895,9.378l0.252,1.14,9.109,1.518v7.447l-9.109,1.518ZM457.5,344.208A17.292,17.292,0,1,0,474.791,361.5,17.312,17.312,0,0,0,457.5,344.208Zm0,31.125A13.834,13.834,0,1,1,471.333,361.5,13.849,13.849,0,0,1,457.5,375.333Z" transform="translate(-416 -320)" />
-                </svg>
-
-
-              </div>
-              <div class="card-border-bottom track-1-color"></div>
-            </div>
-
-            <div class="ui raised link card" data-track-id="#track-2" data-track-count="2" data-track-title="Backend Developer">
-              <div class="content">
-                <div class="description">
-                  <span>I need some custom
-                    <strong class="track-2-color">DeFi Development</strong></span>
-                  <p class='small text'>AMMs, Loans, Stable Coins, Tokenomics....</p>
-                </div>
-              </div>
-              <div class="track-2-color">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="58" viewBox="0 0 60 58">
-                  <metadata>
-                    <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-                    <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01 ">
-                      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <rdf:Description rdf:about="" />
-                      </rdf:RDF>
-                    </x:xmpmeta>
-                    <?xpacket end="w"?>
-                  </metadata>
-                  <defs>
-                    <style>
-                      .cls-1 {
-                        fill-rule: evenodd;
-                      }
-                    </style>
-                  </defs>
-                  <path id="Forma_1" data-name="Forma 1" class="cls-1" d="M49.5,43A4.5,4.5,0,1,0,54,47.5,4.505,4.505,0,0,0,49.5,43Zm0,7A2.5,2.5,0,1,1,52,47.5,2.5,2.5,0,0,1,49.5,50ZM10,50a1,1,0,1,1,1-1A1,1,0,0,1,10,50Zm4,0a1,1,0,1,1,1-1A1,1,0,0,1,14,50ZM8,47a1,1,0,1,1,1-1A1,1,0,0,1,8,47Zm4,0a1,1,0,1,1,1-1A1,1,0,0,1,12,47Zm6,3a1,1,0,1,1,1-1A1,1,0,0,1,18,50Zm-2-3a1,1,0,1,1,1-1A1,1,0,0,1,16,47Zm6,3a1,1,0,1,1,1-1A1,1,0,0,1,22,50Zm-2-3a1,1,0,1,1,1-1A1,1,0,0,1,20,47Zm6,3a1,1,0,1,1,1-1A1,1,0,0,1,26,50Zm-2-3a1,1,0,1,1,1-1A1,1,0,0,1,24,47Zm19.1,9H42.072a1,1,0,0,0,0,2H43.1A1,1,0,0,0,43.1,56Zm8.21,0H50.282a1,1,0,0,0,0,2h1.026A1,1,0,0,0,51.308,56ZM46.177,39H47.2a1,1,0,0,0,0-2H45.656a1,1,0,0,0,0,2h0.521ZM47.2,56H46.177a1,1,0,1,0,0,2H47.2A1,1,0,0,0,47.2,56Zm-8.21,0H37.967a1,1,0,0,0,0,2h1.026A1,1,0,0,0,38.993,56ZM18.47,56H17.444a1,1,0,0,0,0,2H18.47A1,1,0,0,0,18.47,56Zm4.1,0H21.548a1,1,0,0,0,0,2h1.026A1,1,0,0,0,22.574,56ZM10.26,56H9.234a1,1,0,1,0,0,2H10.26A1,1,0,1,0,10.26,56Zm-4.1,0H5.129a1,1,0,1,0,0,2H6.155A1,1,0,1,0,6.155,56Zm20.524,0H25.653a1,1,0,1,0,0,2h1.026A1,1,0,1,0,26.679,56Zm8.21,0H33.863a1,1,0,0,0,0,2h1.026A1,1,0,1,0,34.889,56Zm-4.105,0H29.758a1,1,0,1,0,0,2h1.026A1,1,0,0,0,30.784,56ZM14.365,56H13.339a1,1,0,1,0,0,2h1.026A1,1,0,0,0,14.365,56Zm41.027,0H54.387a1,1,0,0,0,0,2h1.026a0.991,0.991,0,0,0,.99-1A1.009,1.009,0,0,0,55.392,56ZM2.511,38.5a1,1,0,0,0-1.41.115,4.621,4.621,0,0,0-.7,1.1,1,1,0,1,0,1.823.82,2.65,2.65,0,0,1,.4-0.627A1,1,0,0,0,2.511,38.5ZM59,49.831a1,1,0,0,0-1,1v1.026a1,1,0,0,0,2,0V50.831A1,1,0,0,0,59,49.831Zm0-4.1a1,1,0,0,0-1,1v1.026a1,1,0,0,0,2,0V46.727A1,1,0,0,0,59,45.727ZM37.447,39h1.547a1,1,0,0,0,0-2H37.447A1,1,0,0,0,37.447,39ZM5.129,39H6.156a1,1,0,0,0,0-2H4.573v0.191l0,0V37a0.982,0.982,0,0,0-.979,1,1.017,1.017,0,0,0,1.021,1h0.52ZM59,41.622a1,1,0,0,0-1,1v1.025a1,1,0,0,0,2,0V42.622A1,1,0,0,0,59,41.622ZM1,49.294a1,1,0,0,0,1-1V47.269a1,1,0,0,0-2,0v1.025A1,1,0,0,0,1,49.294Zm1.421,5.52a1,1,0,1,0-1.673,1.1,4.637,4.637,0,0,0,.86.979,1,1,0,1,0,1.3-1.517A2.69,2.69,0,0,1,2.421,54.814ZM1,45.189a1,1,0,0,0,1-1V43.163a1,1,0,0,0-2,0v1.026A1,1,0,0,0,1,45.189Zm58.091,8.79a1,1,0,0,0-1.325.495,2.6,2.6,0,0,1-.4.621A1,1,0,0,0,58.879,56.4a4.576,4.576,0,0,0,.706-1.1A1,1,0,0,0,59.091,53.979ZM58.967,40.5a1,1,0,0,0,.3-1.382,4.609,4.609,0,0,0-.856-0.987A1,1,0,0,0,57.1,39.639a2.574,2.574,0,0,1,.484.558A1,1,0,0,0,58.967,40.5ZM1,53.4a1,1,0,0,0,1-1V51.373a1,1,0,0,0-2,0V52.4A1,1,0,0,0,1,53.4ZM45,28.5A4.5,4.5,0,1,0,49.5,24,4.505,4.505,0,0,0,45,28.5ZM49.5,26A2.5,2.5,0,1,1,47,28.5,2.5,2.5,0,0,1,49.5,26ZM10,31a1,1,0,1,1,1-1A1,1,0,0,1,10,31Zm4,0a1,1,0,1,1,1-1A1,1,0,0,1,14,31ZM8,28a1,1,0,1,1,1-1A1,1,0,0,1,8,28Zm4,0a1,1,0,1,1,1-1A1,1,0,0,1,12,28Zm6,3a1,1,0,1,1,1-1A1,1,0,0,1,18,31Zm-2-3a1,1,0,1,1,1-1A1,1,0,0,1,16,28Zm6,3a1,1,0,1,1,1-1A1,1,0,0,1,22,31Zm-2-3a1,1,0,1,1,1-1A1,1,0,0,1,20,28Zm6,3a1,1,0,1,1,1-1A1,1,0,0,1,26,31Zm-2-3a1,1,0,1,1,1-1A1,1,0,0,1,24,28ZM13.844,18H12.818a1,1,0,1,0,0,2h1.026A1,1,0,1,0,13.844,18Zm4.105,0H16.923a1,1,0,1,0,0,2h1.026A1,1,0,0,0,17.949,18ZM13.844,37H12.817a1,1,0,0,0,0,2h1.548a1,1,0,1,0,0-2H13.844ZM2.421,35.814a1,1,0,1,0-1.673,1.1,4.637,4.637,0,0,0,.86.979,1,1,0,1,0,1.3-1.517A2.69,2.69,0,0,1,2.421,35.814ZM10.26,37H8.713a1,1,0,1,0,0,2H10.26A1,1,0,0,0,10.26,37Zm13.314,1a1,1,0,0,0-1-1H21.026a1,1,0,1,0,0,2h1.548A1,1,0,0,0,23.574,38ZM9.739,18H8.713a1,1,0,0,0,0,2H9.739A1,1,0,0,0,9.739,18ZM3.588,19a1.017,1.017,0,0,0,1.021,1H5.635a1,1,0,0,0,0-2H4.573L4.567,19V18A0.982,0.982,0,0,0,3.588,19Zm-1.077.5a1,1,0,0,0-1.41.115,4.621,4.621,0,0,0-.7,1.1,1,1,0,1,0,1.823.82,2.65,2.65,0,0,1,.4-0.627A1,1,0,0,0,2.511,19.5ZM17.949,37H16.923a1,1,0,0,0,0,2H18.47a1,1,0,0,0,0-2H17.949Zm4.1-19H21.028a1,1,0,0,0,0,2h1.026A1,1,0,1,0,22.054,18ZM59,30.831a1,1,0,0,0-1,1v1.026a1,1,0,0,0,2,0V31.831A1,1,0,0,0,59,30.831Zm0-8.209a1,1,0,0,0-1,1v1.025a1,1,0,0,0,2,0V23.622A1,1,0,0,0,59,22.622ZM1,26.189a1,1,0,0,0,1-1V24.163a1,1,0,0,0-2,0v1.026A1,1,0,0,0,1,26.189ZM57.367,36.1A1,1,0,0,0,58.88,37.4a4.576,4.576,0,0,0,.706-1.1,1,1,0,0,0-1.82-.83A2.6,2.6,0,0,1,57.367,36.1Zm1.6-14.6a1,1,0,0,0,.3-1.382,4.609,4.609,0,0,0-.856-0.987A1,1,0,0,0,57.1,20.639a2.574,2.574,0,0,1,.484.558A1,1,0,0,0,58.967,21.5ZM26.679,37H25.132a1,1,0,0,0,0,2h1.547A1,1,0,1,0,26.679,37ZM1,30.294a1,1,0,0,0,1-1V28.269a1,1,0,0,0-2,0v1.025A1,1,0,0,0,1,30.294ZM1,34.4a1,1,0,0,0,1-1V32.373a1,1,0,0,0-2,0V33.4A1,1,0,0,0,1,34.4ZM37.447,20h1.026a1,1,0,0,0,0-2H37.447A1,1,0,0,0,37.447,20ZM55.392,37H53.865a1,1,0,0,0,0,2h1.548a0.991,0.991,0,0,0,.99-1A1.009,1.009,0,0,0,55.392,37ZM59,26.727a1,1,0,0,0-1,1v1.026a1,1,0,0,0,2,0V27.727A1,1,0,0,0,59,26.727ZM46.682,18H45.656a1,1,0,0,0,0,2h1.026A1,1,0,0,0,46.682,18ZM43.1,37H41.55a1,1,0,0,0,0,2H43.1A1,1,0,0,0,43.1,37Zm-8.209,0H33.341a1,1,0,0,0,0,2h1.548A1,1,0,1,0,34.889,37Zm-4.105,0H29.237a1,1,0,1,0,0,2h1.547A1,1,0,0,0,30.784,37ZM27.158,19a1,1,0,0,0-1-1H25.132a1,1,0,0,0,0,2h1.026A1,1,0,0,0,27.158,19Zm6.184,1h1.026a1,1,0,0,0,0-2H33.342A1,1,0,0,0,33.342,20ZM50.787,37H49.76a1,1,0,1,0,0,2h1.548a1,1,0,0,0,0-2H50.787ZM41.551,20h1.026a1,1,0,0,0,0-2H41.551A1,1,0,0,0,41.551,20Zm13.341,0a1,1,0,0,0,0-2H53.866a1,1,0,0,0,0,2h1.026Zm-4.105,0a1,1,0,1,0,0-2H49.761a1,1,0,1,0,0,2h1.026ZM38,6H59a1,1,0,0,0,0-2H38A1,1,0,0,0,38,6ZM1,6H22a1,1,0,0,0,0-2H1A1,1,0,0,0,1,6ZM29.586,18H29.237a1,1,0,1,0,0,2h1.026a0.986,0.986,0,0,0,.962-0.811l4.982-4.982-1.414-1.414Zm-4.379-2.793,5.254-5.254a4.954,4.954,0,1,0-2.455-.373l-4.213,4.213ZM27,5a3,3,0,1,1,3,3A3,3,0,0,1,27,5Z" />
-                </svg>
-
-
-              </div>
-              <div class="card-border-bottom track-2-color"></div>
-            </div>
-
-            <div class="ui raised link card" data-track-id="#track-3" data-track-count="3" data-track-title="Mobile Developer">
-              <div class="content">
-                <div class="description">
-                  <span>I want some custom
-                    <strong class="track-3-color">Web3 Development</strong></span>
-                    <p class='small text'>Dapps, Distributed File Storage, IPFS, Arweave...</p>
-                </div>
-              </div>
-              <div class="track-3-color">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="51.934" height="79.067" viewBox="0 0 401.656 611.5">
-                  <metadata>
-                    <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-                    <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
-                      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <rdf:Description rdf:about="" />
-                      </rdf:RDF>
-                    </x:xmpmeta>
-                    <?xpacket end="w"?>
-                  </metadata>
-                  <defs>
-                    <style>
-                      .cls-1 {
-                        fill-rule: evenodd;
-                      }
-                    </style>
-                  </defs>
-                  <path id="Forma_1" data-name="Forma 1" class="cls-1" d="M361.293,0.5H41.707A41.411,41.411,0,0,0,.342,41.864V571.136A41.411,41.411,0,0,0,41.707,612.5H361.293a41.41,41.41,0,0,0,41.365-41.364V41.864A41.411,41.411,0,0,0,361.293.5ZM19.874,104.293H383.125V508.706H19.874V104.293ZM41.707,20.031H361.293a21.858,21.858,0,0,1,21.833,21.833v42.9H19.874v-42.9A21.857,21.857,0,0,1,41.707,20.031ZM361.293,592.967H41.707a21.856,21.856,0,0,1-21.833-21.832v-42.9H383.125v42.9A21.856,21.856,0,0,1,361.293,592.967ZM281.153,62.806a10.417,10.417,0,1,0-10.417-10.417A10.429,10.429,0,0,0,281.153,62.806Zm-52,488.031h-55.3a9.767,9.767,0,0,0,0,19.533h55.3A9.767,9.767,0,0,0,229.149,550.837Zm-55.3-488.675h55.3a9.766,9.766,0,1,0,0-19.532h-55.3A9.766,9.766,0,1,0,173.852,62.162Zm19.86,342.008a9.765,9.765,0,0,0,15.576,0L310.336,270.61a70.2,70.2,0,0,0-108.965-88.4,69.549,69.549,0,0,0-52.7-24.131,70.287,70.287,0,0,0-70.207,70.207A69.585,69.585,0,0,0,92.661,270.61ZM148.677,177.61a50.214,50.214,0,0,1,50.157,50.158,9.766,9.766,0,1,0,19.532,0,69.3,69.3,0,0,0-5.89-28.038A50.665,50.665,0,0,1,305,228.286a50.214,50.214,0,0,1-10.238,30.54L201.5,382.092,108.239,258.823A50.212,50.212,0,0,1,98,228.283,50.732,50.732,0,0,1,148.677,177.61ZM314.764,435.389H88.236a9.766,9.766,0,1,0,0,19.532H314.762A9.766,9.766,0,1,0,314.764,435.389Z" transform="translate(-0.344 -0.5)" />
-                </svg>
-
-
-              </div>
-              <div class="card-border-bottom track-3-color"></div>
-            </div>
-
-            <div class="ui raised link card" data-track-id="#track-4" data-track-count="4" data-track-title="Full-stack Developer">
-              <div class="content">
-                <div class="description">
-                  <span>I want some custom
-                    <strong class="track-4-color">Full Stack Blockchain Development</strong></span>
-                    <p class='small text'>Everything together in Full Stack harmony!</p>
-                </div>
-              </div>
-              <div class="track-4-color">
-                <svg xmlns="http://www.w3.org/2000/svg" width="93" height="82.46" viewBox="0 0 300 266">
-                  <metadata>
-                    <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-                    <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
-                      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-                        <rdf:Description rdf:about="" />
-                      </rdf:RDF>
-                    </x:xmpmeta>
-                    <?xpacket end="w"?>
-                  </metadata>
-                  <defs>
-                    <style>
-                      .cls-1 {
-                        fill-rule: evenodd;
-                      }
-                    </style>
-                  </defs>
-                  <path class="cls-1" d="M300,90.834a90.9,90.9,0,0,0-150-69A90.861,90.861,0,1,0,59.089,175.945a90.919,90.919,0,0,0,181.83-.007A91,91,0,0,0,300,90.834Zm-72.644,75.615a77.671,77.671,0,0,1-68.033-15.813,90.51,90.51,0,0,0,21.6-46.849A78.017,78.017,0,0,1,227.355,166.449Zm-77.361-25.015A77.446,77.446,0,0,1,131.7,99.554a77.456,77.456,0,0,1,36.584,0A77.449,77.449,0,0,1,149.994,141.434ZM119.06,103.789a90.509,90.509,0,0,0,21.6,46.848A77.677,77.677,0,0,1,72.65,166.454,78,78,0,0,1,119.06,103.789Zm30.934-19.483a91.024,91.024,0,0,0-18.645,1.924A77.381,77.381,0,0,1,150,40.255,77.372,77.372,0,0,1,168.639,86.23,91.031,91.031,0,0,0,149.994,84.306ZM13.07,90.834a77.822,77.822,0,0,1,127.594-59.78,90.385,90.385,0,0,0-22.522,59.012,91.143,91.143,0,0,0-58.136,72.157A77.915,77.915,0,0,1,13.07,90.834Zm136.924,162.11a77.914,77.914,0,0,1-77.7-73.168,90.921,90.921,0,0,0,77.7-19.922,90.914,90.914,0,0,0,77.717,19.917A77.923,77.923,0,0,1,149.994,252.944ZM240,162.216a91.151,91.151,0,0,0-58.154-72.152,90.384,90.384,0,0,0-22.52-59.01A77.793,77.793,0,1,1,240,162.216Z" />
-                </svg>
-
-
-              </div>
-              <div class="card-border-bottom track-4-color"></div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="DevZep home">
+        <span class="brand-mark">DZ</span>
+        <span>DevZep</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#platforms">Claude Platforms</a>
+        <a href="#apps">Production Apps</a>
+        <a href="#process">Process</a>
+      </nav>
+      <a class="button secondary" href="mailto:info@devbootstrap.com">Start a project</a>
     </div>
+  </header>
 
-  </section>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Claude-first AI consultancy for production teams</span>
+          <h1>Build useful AI systems around Claude — not fragile demos.</h1>
+          <p class="hero-copy">DevZep designs and ships AI applications with Claude at the core: MCP tool ecosystems, RAG knowledge layers, agent workflows, context-management infrastructure, and production deployments for DeFi, digital twins, and operations automation.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:info@devbootstrap.com">Book an AI build sprint →</a>
+            <a class="button secondary" href="#apps">View production focus</a>
+          </div>
+          <div class="trusted" aria-label="Capabilities">
+            <span class="pill">Model Context Protocol</span>
+            <span class="pill">Retrieval-Augmented Generation</span>
+            <span class="pill">Autonomous Agents</span>
+            <span class="pill">Context Management</span>
+          </div>
+        </div>
 
+        <aside class="console" aria-label="AI architecture preview">
+          <div class="console-top">
+            <div class="lights"><span class="light"></span><span class="light"></span><span class="light"></span></div>
+            <span>devzep.ai/claude-stack</span>
+          </div>
+          <div class="console-body">
+            <p class="code-line"><span class="accent">claude</span>.plan("turn domain expertise into production software")</p>
+            <p class="code-line">stack = ["MCP", "RAG", "Agents", "Context Memory", "Cloud Deploy"]</p>
+            <div class="architecture-card">
+              <div class="node-row">
+                <div class="node"><strong>Claude models</strong><span>Reasoning, coding, orchestration</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><strong>MCP tools</strong><span>APIs, data, actions, workflows</span></div>
+              </div>
+              <div class="node-row">
+                <div class="node"><strong>RAG layer</strong><span>Docs, repos, knowledge graphs</span></div>
+                <div class="arrow">→</div>
+                <div class="node"><strong>Agent runtime</strong><span>Tasks, memory, evals, guardrails</span></div>
+              </div>
+              <div class="metrics">
+                <div class="metric"><b>Claude</b><span>primary model layer</span></div>
+                <div class="metric"><b>MCP</b><span>tool-native integrations</span></div>
+                <div class="metric"><b>Prod</b><span>secure deployments</span></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-    <br><br>
-    <nav class="navbar navbar-expand-lg navbar-light p-4">
-      <div class="container mt-1">
-        <p class="text-white mt-1">@ 2022 DevZep: Full Stack Blockchain DeFi & Web3 Consultancy</p>
-        <div class="collapse navbar-collapse" id=""></div>
-          <ul class="navbar-nav ml-auto ">
-            <li class="nav-item">
-              <a class="nav-link  text-white" href="https://www.youtube.com/channel/UCsec5JlNrA02iT4826EazTw" tabindex="-1" aria-disabled="true">Free Blockchain Tutorials</a>
-            </li>
-          </ul>
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Claude-native consulting from strategy to shipped product.</h2>
+          <p>We help teams move from AI idea to maintainable, observable, production-grade software — with the right model path, context architecture, and deployment discipline.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card featured">
+            <div class="icon">AI</div>
+            <h3>Claude solution design</h3>
+            <p>Architecture, prompt systems, tool-use design, eval harnesses, and workflows built specifically around Claude’s strengths in reasoning, coding, and agentic task execution.</p>
+          </article>
+          <article class="card">
+            <div class="icon">MCP</div>
+            <h3>MCP integrations</h3>
+            <p>Model Context Protocol servers that connect Claude to your private APIs, repositories, databases, dashboards, on-chain data, and operational tools.</p>
+          </article>
+          <article class="card">
+            <div class="icon">RAG</div>
+            <h3>RAG knowledge systems</h3>
+            <p>Retrieval pipelines that make Claude grounded in your documentation, codebases, research, customer knowledge, runbooks, and domain-specific datasets.</p>
+          </article>
+          <article class="card">
+            <div class="icon">AG</div>
+            <h3>Agent workflows</h3>
+            <p>Multi-step AI agents that plan, use tools, inspect outputs, recover from failures, and complete useful business processes with human oversight where it matters.</p>
+          </article>
+          <article class="card">
+            <div class="icon">CTX</div>
+            <h3>Context management</h3>
+            <p>Memory, summarization, session state, retrieval windows, and context budgets designed so Claude has the right information at the right time.</p>
+          </article>
+          <article class="card">
+            <div class="icon">OPS</div>
+            <h3>Production deployment</h3>
+            <p>Secure cloud deployment, monitoring, evaluations, CI/CD, cost controls, rate-limit handling, and private data boundaries for real-world AI applications.</p>
+          </article>
         </div>
       </div>
-    </nav>
+    </section>
 
+    <section class="dark-section" id="platforms">
+      <div class="container">
+        <div class="section-head">
+          <h2>One Claude strategy, multiple deployment paths.</h2>
+          <p>DevZep works directly with Claude models through the channels that best fit your team’s security, cost, procurement, and infrastructure needs.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Anthropic Developer Console</h3>
+            <p>Direct Claude API usage through Anthropic for fast iteration, first-party capabilities, prompt development, and production application builds.</p>
+            <ul class="list"><li><span class="check">✓</span> Direct model access</li><li><span class="check">✓</span> Tool-use and structured workflows</li></ul>
+          </article>
+          <article class="card">
+            <h3>OpenRouter</h3>
+            <p>Flexible access to Claude alongside other models when applications need routing, fallback strategies, comparative evals, or vendor abstraction.</p>
+            <ul class="list"><li><span class="check">✓</span> Model routing</li><li><span class="check">✓</span> Fallback and experimentation</li></ul>
+          </article>
+          <article class="card">
+            <h3>AWS Bedrock</h3>
+            <p>Enterprise Claude deployment through AWS for teams that need cloud-native identity, networking, governance, and existing infrastructure alignment.</p>
+            <ul class="list"><li><span class="check">✓</span> Enterprise governance</li><li><span class="check">✓</span> AWS-native operations</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="apps">
+      <div class="container">
+        <div class="section-head">
+          <h2>Production AI applications with real domain depth.</h2>
+          <p>DevZep focuses on AI systems that connect language models to valuable workflows — especially in DeFi, security, and knowledge-rich digital products.</p>
+        </div>
+        <div class="apps">
+          <article class="card app-card featured">
+            <span class="tag">Live production focus</span>
+            <div class="app-title">
+              <h3>DeFi Yield Hunter</h3>
+              <p>AI-assisted DeFi discovery and analysis for yield opportunities — combining market data, strategy intelligence, risk signals, and production deployment discipline.</p>
+              <div class="app-links">
+                <a class="button dark" href="https://github.com/reanblock/DeFi-Yield-Hunter" target="_blank" rel="noopener">GitHub repo</a>
+              </div>
+            </div>
+          </article>
+          <div class="mini-dashboard">
+            <div class="dash-row"><span class="spark"></span><div><b>DeFi Bounty Hunter App</b><br><span>Launching soon — AI-assisted vulnerability discovery and bounty workflow automation.</span></div><strong>soon</strong></div>
+            <div class="dash-row"><span class="spark"></span><div><b>Digital Twin App</b><br><span>Conversational AI experience for live knowledge, persona, and context-rich interactions.</span></div><a href="https://reanblock.com/chat/" target="_blank" rel="noopener">open</a></div>
+            <div class="dash-row"><span class="spark"></span><div><b>Custom AI deployments</b><br><span>Claude agents, RAG, MCP, dashboards, automation, and secure cloud production apps.</span></div><strong>build</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="providers">
+          <div class="provider"><b>MCP</b><span>Expose real tools, private APIs, data stores, chain analytics, and internal workflows to Claude safely.</span></div>
+          <div class="provider"><b>RAG</b><span>Index and retrieve the most relevant context from docs, code, transactions, user history, and knowledge bases.</span></div>
+          <div class="provider"><b>Agents</b><span>Build Claude-powered workers that can reason, call tools, inspect results, and complete multi-step tasks.</span></div>
+          <div class="provider"><b>Context Management</b><span>Engineer memory, summaries, session handoffs, context budgets, and retrieval state for reliable outputs.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="dark-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>A pragmatic build process for serious AI products.</h2>
+          <p>Every engagement is shaped around fast validation, measurable quality, and a clear path to production.</p>
+        </div>
+        <div class="grid-2 process">
+          <article class="card step"><h3>Discover</h3><p>Map workflows, data, users, risks, and model requirements. Identify where Claude creates leverage and where deterministic software should stay in control.</p></article>
+          <article class="card step"><h3>Prototype</h3><p>Build a high-signal proof of concept with real context, tools, and task loops — not a disconnected chatbot demo.</p></article>
+          <article class="card step"><h3>Evaluate</h3><p>Create test cases, adversarial checks, quality rubrics, cost analysis, and failure-mode handling before production rollout.</p></article>
+          <article class="card step"><h3>Deploy</h3><p>Ship with CI/CD, observability, secure secrets, rate-limit strategies, user feedback loops, and operational support.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Ready to make Claude useful inside your product?</h2>
+          <p>Bring DevZep a workflow, app idea, codebase, or DeFi product concept — and we’ll turn it into an AI system designed for production from day one.</p>
+          <a class="button primary" href="mailto:info@devbootstrap.com">Contact DevZep</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span><strong>DevZep</strong> — Claude AI consultancy for DeFi and production applications.</span>
+      <span class="mono">MCP · RAG · Agents · Context · Production</span>
+    </div>
+  </footer>
 </body>
-<script src="../assets/js/jquery.min.c9f5aeeca3ad.js"></script>
-<script src="../assets/js/slick.min.b53bdfc29e18.js"></script>
-<script src="../assets/js/index.fbcbaf054ca8.js"></script>
-
-
 </html>
